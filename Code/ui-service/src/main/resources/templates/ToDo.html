@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">>
+<head>
+    <meta charset="UTF-8">
+    <title>ToDo-List</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>ToDo</th>
+        <th>Erstelldatum</th>
+        <th>Status</th>
+    </tr>
+    <tr th:each="ToDo : ${ToDoList.toDoList}">
+        <th th:text="${ToDo.content}"></th>
+        <th th:text="${#dates.format(ToDo.creationDate, 'dd-MMM-yyyy')}"></th>
+        <th th:if="${ToDo.status}">Erledigt</th>
+        <th th:unless="${ToDo.status}">Offen</th>
+    </tr>
+</table>
+
+
+<form action="#" th:action="@{/addToDo}" th:object="${todo}" method="post">
+    <p>ToDo: <input type="text" th:field="*{content}" /></p>
+    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+</form>
+
+</body>
+</html>
