@@ -4,12 +4,12 @@ import de.antonlammert.todoservice.model.ToDo;
 import de.antonlammert.todoservice.model.ToDoList;
 import de.antonlammert.todoservice.service.DBService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import static org.springframework.web.bind.annotation.RequestMethod.GET;
-import static org.springframework.web.bind.annotation.RequestMethod.POST;
+import static org.springframework.web.bind.annotation.RequestMethod.*;
 
 @RestController
 public class ToDoEndpoint {
@@ -27,8 +27,8 @@ public class ToDoEndpoint {
         dbService.addToDo(todo);
     }
 
-    @RequestMapping(value = "/removeToDo", method = POST)
-    public void removeToDo(){
-
+    @RequestMapping(value = "/removeToDo/{id}", method = DELETE)
+    public void removeToDo(@PathVariable("id") String id) {
+        dbService.removeToDo(id);
     }
 }

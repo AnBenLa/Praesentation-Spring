@@ -36,5 +36,9 @@ public class ToDoController {
     }
 
     //TODO remove ToDo
-
+    @RequestMapping(value = "/deleteToDo", method = POST)
+    public String removeToDo(@ModelAttribute(value="todo") ToDo toDo, Model model){
+        toDoService.removeToDo(toDo.id);
+        return "redirect:/";
+    }
 }

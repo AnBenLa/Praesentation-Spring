@@ -24,7 +24,9 @@ public class ToDoService {
         restTemplate.postForEntity(config.todoservice + "/addToDo", toDo ,ToDo.class);
     }
 
-    public void removeToDo(){
-
+    public void removeToDo(String id){
+        RestTemplate restTemplate = new RestTemplate();
+        String url = config.todoservice + "/removeToDo/" + id;
+        restTemplate.delete(url);
     }
 }

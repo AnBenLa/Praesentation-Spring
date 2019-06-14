@@ -1,0 +1,32 @@
+.center{
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+table {
+    border-collapse: collapse;
+}
+th {
+    border-bottom:2px dashed black;
+    Color:black;
+}
+th, td {
+    width:auto;
+    text-align:center;
+    padding:20px
+
+}
+.geeks {
+    border-right:hidden;
+}
+.gfg {
+    border-collapse:separate;
+    border-spacing:0 15px;
+}
+
+#rcorners{
+    margin-top: 50px;
+    border-radius: 25px;
+    border: 2px solid #007bff;
+    padding: 20px;
+}
