@@ -34,6 +34,7 @@ public class ToDoService {
     }
 
     /**
+     * creates a delete under  "/removeToDo/" to the todo-service with the id of the todo that should be "deleted"
      * sets the status of the ToDo with the given id from our Database to true (it is now finished)
      * @param id the id of the ToDo that should be removed from the list of unfinished ToDos
      */

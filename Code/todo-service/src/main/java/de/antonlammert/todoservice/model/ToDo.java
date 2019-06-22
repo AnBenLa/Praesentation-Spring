@@ -6,12 +6,14 @@ import java.util.Date;
 
 public class ToDo {
 
+    //the @id annotation will allow spring to set the value itself when saving the object to our database
     @Id
     public String Id;
     public String content;
     public Date creationDate;
     public Boolean status;
 
+    //the empty constructor as well as the setter and getter are necessary for the rest-template to initialize the object
     public ToDo() {
     }
 

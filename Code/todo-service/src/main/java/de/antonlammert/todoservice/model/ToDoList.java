@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class ToDoList {
     private ArrayList<ToDo> toDoList;
 
+    //the empty constructor as well as the setter and getter are necessary for the rest-template to initialize the object
     public ToDoList() {
     }
 
