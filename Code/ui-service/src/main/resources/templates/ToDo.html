@@ -18,11 +18,17 @@
             <th>Erstelldatum</th>
             <th></th>
         </tr>
+        <!-- for each ToDo in the toDoList of our model create an entry -->
         <tr th:each="ToDo : ${ToDoList.toDoList}">
+            <!-- insert the content string of the current todo -->
             <td th:text="${ToDo.content}"></td>
+            <!-- insert the creation date of the current todo -->
             <td th:text="${#dates.format(ToDo.creationDate, 'dd MMM yyyy')}"></td>
+            <!-- if the status of the current todo is true display "Erledigt"-->
             <td th:if="${ToDo.status}">Erledigt</td>
+            <!-- insert the status of the current todo is false display a delete Button -->
             <td th:unless="${ToDo.status}">
+                <!-- create a delete post and set the id of the todo object that we pass to the id of the todo that should be deleted -->
                 <form method="post" th:action="@{/deleteToDo}" th:object="${todo}">
                     <input th:type="hidden" name="id" th:value="${ToDo.id}"/>
                     <button type="submit" class="btn btn-primary">
@@ -35,6 +41,7 @@
 </div>
 <div class="center">
     <div align="center">
+        <!-- creates a post to /addToDo and passes a todo object whos content is filled with the content for the new todo -->
         <form style="width:600px" action="#" th:action="@{/addToDo}" th:object="${todo}" method="post">
         <div class="input-group mb-3">
                 <input style="width:400px" type="text" class="form-control" placeholder="ToDo" th:field="*{content}" aria-label="ToDo content" aria-describedby="button-addon2">
@@ -44,7 +51,6 @@
         </div>
         </form>
     </div>
-
 </div>
 
 </body>

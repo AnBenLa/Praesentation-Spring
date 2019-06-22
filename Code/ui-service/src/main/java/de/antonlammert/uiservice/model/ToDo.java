@@ -9,6 +9,7 @@ public class ToDo {
     public Date creationDate;
     public Boolean status;
 
+    //the empty constructor as well as the setter and getter are necessary for the rest-template to initialize the object
     public ToDo() {
     }
 
